@@ -1,0 +1,9 @@
+<div class="loginFormContainer">
+
+<% if session[:user_id] %>
+  <p>You are actually connected.</p>
+  <p><% link_to "Logout", url_for :controller => "sessions", :action => "destroy" %></p>
+<% else %>
+  <%= render :partial => "sessions/create" %>
+<% end %>
+</div>

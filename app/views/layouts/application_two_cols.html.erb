@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>todoWepApp</title>
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <div class="navbar navbar-default" role="navigation">
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+			  
+			      <!-- Alerts messages -->
+            <% if flash[:alert] %>
+              <div class="alert alert-danger"><%= flash[:alert] %></div>
+			      <% end %>
+			
+      			<!-- Notices messages -->
+			      <% if flash[:notice] %>
+			        <div class="alert alert-success"><%= flash[:notice] %></div>
+			      <% end %>
+			
+			      <%= yield %>
+			
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+      </div>
+    </section>
+    <%= render 'partials/footer' %>  
+    <%= render 'partials/google_analytics' %>
+  </body>
+</html>
