@@ -3,12 +3,17 @@ class UsersController < ApplicationController
 
   # Check if user is logged in
   before_action :verify_logged_in
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+  # Set user variable
+  before_action :set_user, only: %i[show edit update destroy]
 
   # List users. (Users admin home)
   def index
-    @users = User.all.order( 'created_at DESC' )
+    @users = User.all.order('created_at DESC')
   end
+
+  # show user/:id
+  def show; end
 
   # Display new user form
   def new
@@ -17,50 +22,32 @@ class UsersController < ApplicationController
 
   # Process the new user form.
   def create
-
-    @user = User.new( user_params )
-
-    if @user.save
-      flash[:notice] = 'User Created'
-      redirect_to users_path
-    else
-      render 'new'
-    end
-
+    @user = User.new user_params
+    flash[:notice] = 'User Created' if @user.save
+    redirect_to users_path
   end
 
   # Edit user form
-  def edit
-    @user = User.find params[:id]
-  end
+  def edit; end
 
   # Process to edit user form
   def update
-
     @user = User.find params[:id]
-
-    if @user.update user_params
-      flash[:notice] = 'User Updated'
-      redirect_to users_path
-    else
-      render 'edit'
-    end
-
+    flash[:notice] = 'User Updated' if @user.update user_params
+    redirect_to users_path
   end
 
   # Process to the delete action of a user.
   def destroy
     @user = User.find params[:id]
-    @user.destroy
-    flash[:notice] = 'User Removed'
+    flash[:notice] = 'User Removed' if @user.destroy
     redirect_to users_path
   end
-
 
   private
 
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find params[:id]
     end
 
     def user_attr

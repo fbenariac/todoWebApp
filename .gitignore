@@ -21,6 +21,11 @@
 /yarn-error.log
 
 .byebug_history
+<<<<<<< HEAD
 
 # Ignore public assets
 /public/assets
+=======
+.gitignore
+.DS_Store
+>>>>>>> devs
