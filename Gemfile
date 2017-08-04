@@ -27,23 +27,15 @@ gem 'jbuilder', '~> 2.5'
   gem 'coffee-rails', '>= 4.2'
   gem 'uglifier', '>= 1.3.0'
   gem 'bootstrap-sass', '>= 2.0.3.1'
-  gem 'jquery-rails', '>= 4.1.1'  
+  gem 'jquery-rails', '>= 4.1.1'
 #end
 
 # Devs
 group :development, :test do
-  gem 'sdoc', '~> 0.4.0'
-  gem 'rspec', '3.4.0'
-  gem 'annotate'
-  gem 'rails-erd'
+  gem 'sdoc', '~> 0.4.0', :require => false
+  gem 'rspec', '3.4.0',   :require => false
+  gem 'annotate',         :require => false
+  gem 'rails-erd',        :require => false
+  gem 'simplecov',        :require => false
 
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
