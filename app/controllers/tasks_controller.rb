@@ -67,8 +67,11 @@ class TasksController < ApplicationController
       @task = Task.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def task_attr
+      %i[title description completed order due_date]
+    end
+
     def task_params
-      params.require(:task).permit(:title, :description, :completed, :order, :due_date)
+      params.require(:task).permit task_attr
     end
 end
