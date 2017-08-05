@@ -1,8 +1,10 @@
 require 'test_helper'
 
 class TasksControllerTest < ActionDispatch::IntegrationTest
+
   setup do
-    @task = tasks(:one)
+    @task  = tasks(:one)
+    @task_one_bis = tasks(:onebis)
   end
 
   test "should get index" do
@@ -16,11 +18,33 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create task" do
+
     assert_difference('Task.count') do
-      post tasks_url, params: { task: { completed: @task.completed, description: @task.description, due_date: @task.due_date, order: @task.order, title: @task.title } }
+      post tasks_url, params: {
+        task: {
+          completed: @task.completed,
+          description: @task.description,
+          due_date: @task.due_date,
+          order: @task.order,
+          title: @task.title
+        }
+      }
     end
 
     assert_redirected_to task_url(Task.last)
+
+    post tasks_url, params: {
+      task: {
+        completed: @task.completed,
+        description: @task.description,
+        due_date: @task.due_date,
+        order: @task.order,
+        title: ''
+      }
+    }
+
+    assert :success
+
   end
 
   test "should show task" do
@@ -34,8 +58,27 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update task" do
-    patch task_url(@task), params: { task: { completed: @task.completed, description: @task.description, due_date: @task.due_date, order: @task.order, title: @task.title } }
+
+    patch task_url(@task), params: {
+      task: {
+        completed: @task.completed,
+        description: @task.description,
+        due_date: @task.due_date,
+        order: @task.order,
+        title: @task.title
+      }
+    }
+
     assert_redirected_to task_url(@task)
+
+    patch task_url(@task), params: {
+      task: {
+        title: ''
+      }
+    }
+
+    assert :success
+
   end
 
   test "should destroy task" do
@@ -45,4 +88,5 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to tasks_url
   end
+
 end

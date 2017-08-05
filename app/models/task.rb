@@ -13,4 +13,8 @@
 #
 
 class Task < ApplicationRecord
+
+  # a task title is mandatory
+  validates :title, presence: true
+
 end
