@@ -1,7 +1,7 @@
 # Application controller
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
 
+  protect_from_forgery with: :exception
 
   # Global layout for app
   layout "application_two_cols"
