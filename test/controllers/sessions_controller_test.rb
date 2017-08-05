@@ -1,25 +1,3 @@
-# require 'test_helper'
-#
-# class SessionsControllerTest < ActionDispatch::IntegrationTest
-#
-#   # test "should get new" do
-#   #   get sessions_new_url
-#   #   assert_response :success
-#   # end
-#
-#   # test "should get create" do
-#   #   get sessions_create_url
-#   #   assert_response :success
-#   # end
-#
-#   # test "should get destroy" do
-#   #   get sessions_destroy_url
-#   #   delete "/sessions/#{@session.id}"
-#   #   assert_response :success
-#   # end
-#
-# end
-
 require "test_helper"
 
 class SessionControllerTest < ActionDispatch::IntegrationTest
@@ -37,6 +15,7 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
 
     #follow_redirect!
     assert_equal 200, status
+
   end
 
   test 'create session' do
