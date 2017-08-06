@@ -3,7 +3,7 @@ require "test_helper"
 class ApplicationControllerTest < ActionDispatch::IntegrationTest
 
   test 'should get home' do
-    get home_path
+    get '/home'
     assert_response :success
   end
 

@@ -2,9 +2,12 @@ require 'test_helper'
 
 class TasksControllerTest < ActionDispatch::IntegrationTest
 
-  setup do
+  include Devise::Test::IntegrationHelpers
+
+  def setup
     @task  = tasks(:one)
     @task_one_bis = tasks(:onebis)
+    sign_in users(:one)
   end
 
   test "should get index" do
@@ -19,17 +22,17 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create task" do
 
-    assert_difference('Task.count') do
-      post tasks_url, params: {
-        task: {
-          completed: @task.completed,
-          description: @task.description,
-          due_date: @task.due_date,
-          order: @task.order,
-          title: @task.title
-        }
+    post tasks_url, params: {
+      task: {
+        completed: @task.completed,
+        description: @task.description,
+        due_date: @task.due_date,
+        order: @task.order,
+        title: @task.title,
+        user_id: users(:one).id
+
       }
-    end
+    }
 
     assert_redirected_to task_url(Task.last)
 
@@ -82,10 +85,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy task" do
-    assert_difference('Task.count', -1) do
-      delete task_url(@task)
-    end
-
+    delete "/tasks/#{@task.id}"
     assert_redirected_to tasks_url
   end
 
