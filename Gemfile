@@ -21,6 +21,10 @@ gem 'puma', '~> 3.7'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
+# Devise authenticate gem
+gem 'devise', '4.3.0'
+gem 'listen', '>= 3.0.5', '< 3.2',  group: :development
+
 # Assets stuff
 #group :assets do
   gem 'sass-rails',   '>= 5'
@@ -32,10 +36,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Devs
 group :development, :test do
-  gem 'sdoc', '~> 0.4.0', :require => false
-  gem 'rspec', '3.4.0',   :require => false
-  gem 'annotate',         :require => false
-  gem 'rails-erd',        :require => false
-  gem 'simplecov',        :require => false
-
+  gem 'sdoc', '~> 0.4.0', require: false
+  gem 'rspec', '3.4.0',   require: false
+  gem 'annotate',         require: false
+  gem 'rails-erd',        require: false
+  gem 'simplecov',        require: false
 end
