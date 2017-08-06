@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root to: 'tasks#index'
 
   match 'home',    to: 'tasks#index',      via: :all

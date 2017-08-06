@@ -15,26 +15,17 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-			  
-			      <!-- Alerts messages -->
-            <% if flash[:alert] %>
-              <div class="alert alert-danger"><%= flash[:alert] %></div>
-			      <% end %>
-			
-      			<!-- Notices messages -->
-			      <% if flash[:notice] %>
-			        <div class="alert alert-success"><%= flash[:notice] %></div>
-			      <% end %>
-			
+            <%= render 'partials/errors_alert_and_notice_messages' %>
 			      <%= yield %>
-			
           </div>
           <div class="col-md-4">
+            <%= render 'partials/sidebar' %>
+
           </div>
         </div>
       </div>
     </section>
-    <%= render 'partials/footer' %>  
+    <%= render 'partials/footer' %>
     <%= render 'partials/google_analytics' %>
   </body>
 </html>
