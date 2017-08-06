@@ -14,6 +14,8 @@
 
 class Task < ApplicationRecord
 
+  belongs_to :users
+
   # a task title is mandatory
   validates :title, presence: true
 

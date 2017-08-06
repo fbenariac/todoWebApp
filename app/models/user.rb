@@ -8,4 +8,6 @@ class User < ApplicationRecord
          :trackable,
          :validatable
 
+  has_many :tasks
+
 end
