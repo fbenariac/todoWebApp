@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: 'tasks#index'
+  root to: 'application#home'
 
-  match 'home', to: 'tasks#index', via: :all
+  match 'home', to: 'application#home', via: :all
 
   resources :tasks
 

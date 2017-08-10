@@ -14,4 +14,6 @@ class ApplicationController < ActionController::Base
     render :file => 'public/404.html', :status => :not_found, :layout => false
   end
 
+  def home; end
+
 end
