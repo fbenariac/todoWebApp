@@ -23,21 +23,24 @@ gem 'jbuilder', '~> 2.5'
 
 # Devise authenticate gem
 gem 'devise', '4.3.0'
-gem 'listen', '>= 3.0.5', '< 3.2',  group: :development
+
+# CanCanCan user rules gem
+gem 'cancancan', '2.0.0'
 
 # Assets stuff
-#group :assets do
+group :assets do
   gem 'sass-rails',   '>= 5'
   gem 'coffee-rails', '>= 4.2'
   gem 'uglifier', '>= 1.3.0'
   gem 'bootstrap-sass', '>= 2.0.3.1'
   gem 'jquery-rails', '>= 4.1.1'
-#end
+end
 
 # Devs
 group :development, :test do
   gem 'sdoc', '~> 0.4.0', require: false
   gem 'rspec', '3.4.0',   require: false
+  gem 'listen', '>= 3.0.5', '< 3.2', require: false
   gem 'annotate',         require: false
   gem 'rails-erd',        require: false
   gem 'simplecov',        require: false
