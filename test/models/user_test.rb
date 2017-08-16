@@ -15,6 +15,9 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  admin                  :boolean          default(FALSE)
+#  user                   :boolean          default(FALSE)
+#  guest                  :boolean          default(TRUE)
 #
 
 require 'test_helper'
