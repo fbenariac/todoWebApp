@@ -15,11 +15,11 @@ class Ability
     # Users can read create and update his post
     if user.user?
 
-      can [:create, :read, :update], Task
+      can %i[create read update], Task
 
       # Il faut être le propriétaire d'un enregistrement pour l'éditer
       if user.id
-        can [:create, :read, :update, :destroy], Task, { user_id: user.id }
+        can %i[create read update destroy], Task, { user_id: user.id }
       end
 
     end
