@@ -4,6 +4,9 @@ class TasksController < ApplicationController
   load_and_authorize_resource
 
   # before_action :authenticate_user!
+  
+  # paper_trail versionning: get user 'who done it'
+  before_action :set_paper_trail_whodunnit
 
   before_action :set_task, only: %i[show edit update destroy]
 
