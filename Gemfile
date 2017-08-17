@@ -26,6 +26,9 @@ gem 'devise', '4.3.0'
 # CanCanCan user rules gem
 gem 'cancancan', '2.0.0'
 
+# Document versionning
+gem 'paper_trail', '7.1.0'
+
 # Assets stuff
 gem 'sass-rails',   '>= 5'
 gem 'coffee-rails', '>= 4.2'
