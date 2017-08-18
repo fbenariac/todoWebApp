@@ -1,9 +1,5 @@
 AllCops:
-<<<<<<< HEAD
-  TargetRubyVersion: 2.2
-=======
   TargetRubyVersion: 2.0
->>>>>>> devs
   # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
   # to ignore them, so only the ones explicitly set in this file are enabled.
   DisabledByDefault: true
@@ -19,7 +15,3 @@ Layout/EmptyLinesAroundClassBody:
 # In a regular module definition, no empty lines around the body.
 Layout/EmptyLinesAroundModuleBody:
   Enabled: false
-<<<<<<< HEAD
-
-=======
->>>>>>> devs
