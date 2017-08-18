@@ -23,4 +23,21 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  private
+  
+    # Overwriting the devise sign_out redirect path method
+    # After log out user is redirect to home_path
+    def after_sign_out_path_for(resource_or_scope)
+      home_path
+    end
+
+    # Overwriting the sign_in redirect path method
+    # After log in user is redirect to home_path
+    def after_sign_in_path_for(resource_or_scope)
+      # if current_user.admin?
+      #   admin_logged_home_path
+      # else 
+        logged_home_path
+      # end
+    end
 end

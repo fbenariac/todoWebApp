@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root to: 'application#home'
 
   match 'home', to: 'application#home', via: :all
-
+  match 'logged_home', to: 'tasks#index', via: :get
+  
   resources :tasks
 
   # Any routes that aren't defined above here go to the 404
