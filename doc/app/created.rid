@@ -1,4 +1,4 @@
-Fri, 18 Aug 2017 22:49:26 +0200
+Sat, 19 Aug 2017 11:39:12 +0200
 README.md	Fri, 18 Aug 2017 22:25:39 +0200
 app/assets/config/manifest.js	Sun, 30 Apr 2017 17:42:35 +0200
 app/assets/javascripts/application.js	Sat, 05 Aug 2017 14:14:28 +0200
@@ -8,7 +8,7 @@ app/assets/stylesheets/login.scss	Sat, 05 Aug 2017 14:14:28 +0200
 app/assets/stylesheets/main.scss	Sat, 05 Aug 2017 14:14:28 +0200
 app/assets/stylesheets/partials/_variables.scss	Sat, 05 Aug 2017 14:14:28 +0200
 app/assets/stylesheets/scaffolds.scss	Sat, 05 Aug 2017 14:14:28 +0200
-app/controllers/application_controller.rb	Fri, 18 Aug 2017 22:49:12 +0200
+app/controllers/application_controller.rb	Sat, 19 Aug 2017 11:37:16 +0200
 app/controllers/tasks_controller.rb	Fri, 18 Aug 2017 22:35:51 +0200
 app/helpers/application_helper.rb	Fri, 18 Aug 2017 22:38:25 +0200
 app/helpers/tasks_helper.rb	Fri, 18 Aug 2017 22:38:13 +0200
