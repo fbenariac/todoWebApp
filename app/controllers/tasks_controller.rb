@@ -1,6 +1,7 @@
 # Task controller
 class TasksController < ApplicationController
-
+  
+  # Cancancan 
   load_and_authorize_resource
 
   # before_action :authenticate_user!
@@ -8,6 +9,7 @@ class TasksController < ApplicationController
   # paper_trail versionning: get user 'who done it'
   before_action :set_paper_trail_whodunnit
 
+  # setter helper
   before_action :set_task, only: %i[show edit update destroy]
 
   # GET /tasks
@@ -75,10 +77,12 @@ class TasksController < ApplicationController
       @task = Task.find(params[:id])
     end
 
+    # Attr accessible list
     def task_attr
       %i[title description completed order due_date]
     end
 
+    # Attr accessor 
     def task_params
       params.require(:task).permit task_attr
     end

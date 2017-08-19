@@ -12,7 +12,6 @@
 #  updated_at  :datetime         not null
 #  user_id     :integer
 #
-
 class Task < ApplicationRecord
 
   # has papertrail versionning hook ;-)

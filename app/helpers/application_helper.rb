@@ -1,2 +1,3 @@
+# Application Helper. Not used now...
 module ApplicationHelper
 end

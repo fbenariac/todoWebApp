@@ -1,6 +1,7 @@
 require 'sdoc'
 require 'rdoc/task'
 
+# Use rdoc to generate docs
 RDoc::Task.new do |rdoc|
   rdoc.rdoc_dir = 'doc/app'
   rdoc.generator = 'sdoc'

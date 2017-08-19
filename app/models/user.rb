@@ -19,10 +19,9 @@
 #  user                   :boolean          default(FALSE)
 #  guest                  :boolean          default(TRUE)
 #
-
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  # Include default devise modules.
   devise :database_authenticatable,
          :registerable,
          :recoverable,
@@ -30,6 +29,7 @@ class User < ApplicationRecord
          :trackable,
          :validatable
 
+  # relations with tasks
   has_many :tasks
 
 end

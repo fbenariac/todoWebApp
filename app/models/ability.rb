@@ -1,8 +1,10 @@
 # CanCan Ability model
 class Ability
 
+  # Cancancan
   include CanCan::Ability
 
+  # Set Users' roles
   def initialize(user)
 
     user ||= User.new
@@ -17,7 +19,7 @@ class Ability
 
       can %i[create read update], Task
 
-      # Il faut être le propriétaire d'un enregistrement pour l'éditer
+      # we must be record's owner to edit it.
       if user.id
         can %i[create read update destroy], Task, { user_id: user.id }
       end
@@ -30,6 +32,5 @@ class Ability
     end
 
   end
-
 
 end

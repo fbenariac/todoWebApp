@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # from Devise
-#   before_action :authenticate_user!
+  before_action :authenticate_user!, except: :home
 
   # Global layout for app
   layout "application_two_cols"
@@ -14,8 +14,13 @@ class ApplicationController < ActionController::Base
     render :file => 'public/404.html', :status => :not_found, :layout => false
   end
 
+  # main application home
   def home; end
 
+  # define CanCan module for application controller
+  module CanCan; end
+
+  # Login error rescue from CanCan
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
       format.json { head :forbidden }
