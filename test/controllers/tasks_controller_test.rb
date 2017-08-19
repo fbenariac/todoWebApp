@@ -20,6 +20,13 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get new with user" do
+    sign_in users(:two)
+
+    get new_task_url
+    assert_response :success
+  end
+
   test "should create task" do
 
     post tasks_url, params: {

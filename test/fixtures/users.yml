@@ -35,3 +35,4 @@ one:
 two:
   id: 2
   email: "test2@test.com"
+  user: true
