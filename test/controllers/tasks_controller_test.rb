@@ -37,7 +37,6 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
         order: @task.order,
         title: @task.title,
         user_id: users(:one).id
-
       }
     }
 
