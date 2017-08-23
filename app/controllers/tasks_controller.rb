@@ -14,10 +14,6 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
   before_action :new_task, only: :new
 
-  # Set user_id when AFTER @task is initialized
-  # (need to be after before action for set_task and new_task)
-  before_action :set_user_id, only: %i[new show edit update destroy]
-
   # GET /tasks
   # GET /tasks.json
   def index
@@ -82,11 +78,13 @@ class TasksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])
+      set_user_id if @task # Set user_id when AFTER @task is initialized
     end
 
     # Create new task obj
     def new_task(params=nil)
       @task = Task.new(params)
+      set_user_id if @task # Set user_id when AFTER @task is initialized
     end
 
     # Set task user_id
