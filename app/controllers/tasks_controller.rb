@@ -1,16 +1,22 @@
 # Task controller
 class TasksController < ApplicationController
-  
-  # Cancancan 
+
+  # Cancancan
   load_and_authorize_resource
 
-  # before_action :authenticate_user!
-  
+  # Devise
+  before_action :authenticate_user!
+
   # paper_trail versionning: get user 'who done it'
   before_action :set_paper_trail_whodunnit
 
   # setter helper
   before_action :set_task, only: %i[show edit update destroy]
+  before_action :new_task, only: :new
+
+  # Set user_id when AFTER @task is initialized
+  # (need to be after before action for set_task and new_task)
+  before_action :set_user_id, only: %i[new show edit update destroy]
 
   # GET /tasks
   # GET /tasks.json
@@ -23,9 +29,7 @@ class TasksController < ApplicationController
   def show; end
 
   # GET /tasks/new
-  def new
-    @task = Task.new
-  end
+  def new; end
 
   # GET /tasks/1/edit
   def edit; end
@@ -33,7 +37,9 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+
+    # Call private helper method to set a new task
+    set_user_id if new_task(task_params)
 
     respond_to do |format|
       if @task.save
@@ -49,6 +55,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
+
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
@@ -77,12 +84,22 @@ class TasksController < ApplicationController
       @task = Task.find(params[:id])
     end
 
+    # Create new task obj
+    def new_task(params=nil)
+      @task = Task.new(params)
+    end
+
+    # Set task user_id
+    def set_user_id
+      @task.user_id ||= current_user.id
+    end
+
     # Attr accessible list
     def task_attr
       %i[title description completed order due_date]
     end
 
-    # Attr accessor 
+    # Attr accessor
     def task_params
       params.require(:task).permit task_attr
     end
