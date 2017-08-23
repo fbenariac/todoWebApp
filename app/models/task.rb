@@ -19,7 +19,7 @@ class Task < ApplicationRecord
 
   # without the optional params, we got the following error when update and create :
   # ActiveRecord::RecordInvalid (Validation failed: users must exist):
-  
+
   # Task belongs to only one user. Optionnal is about test bug TOFIX
   belongs_to :user, optional: true
 
