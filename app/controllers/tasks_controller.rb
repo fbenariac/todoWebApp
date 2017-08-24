@@ -17,7 +17,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks.all
   end
 
   # GET /tasks/1
@@ -77,7 +77,8 @@ class TasksController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = Task.find(params[:id])
+      # take the first task with the id we want and with the current user id (owner).
+      @task = Task.where(id: params[:id]).where(user_id: current_user.id).first
       set_user_id if @task # Set user_id when AFTER @task is initialized
     end
 
