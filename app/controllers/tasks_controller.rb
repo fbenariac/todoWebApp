@@ -1,21 +1,23 @@
 # Task controller
 class TasksController < ApplicationController
-  
-  # Cancancan 
+
+  # Cancancan
   load_and_authorize_resource
 
-  # before_action :authenticate_user!
-  
+  # Devise
+  before_action :authenticate_user!
+
   # paper_trail versionning: get user 'who done it'
   before_action :set_paper_trail_whodunnit
 
   # setter helper
   before_action :set_task, only: %i[show edit update destroy]
+  before_action :new_task, only: :new
 
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks.all
   end
 
   # GET /tasks/1
@@ -23,9 +25,7 @@ class TasksController < ApplicationController
   def show; end
 
   # GET /tasks/new
-  def new
-    @task = Task.new
-  end
+  def new; end
 
   # GET /tasks/1/edit
   def edit; end
@@ -33,15 +33,31 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+
+    # Call private helper method to set a new task
+    set_user_id if new_task(task_params)
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render :show, status: :created, location: @task }
+        
+        format.html { 
+          redirect_to @task, notice: 'Task was successfully created.' 
+        }
+        
+        format.json { 
+          render :show, status: :created, location: @task 
+        }
+
       else
-        format.html { render :new }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+        
+        format.html { 
+          render :new 
+        }
+        
+        format.json { 
+          render json: @task.errors, status: :unprocessable_entity 
+        }
+      
       end
     end
   end
@@ -49,13 +65,29 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
+
     respond_to do |format|
+
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
+
+        format.html { 
+          redirect_to @task, notice: 'Task was successfully updated.' 
+        }
+      
+        format.json { 
+          render :show, status: :ok, location: @task 
+        }
+      
       else
-        format.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+      
+        format.html { 
+          render :edit 
+        }
+        
+        format.json { 
+          render json: @task.errors, status: :unprocessable_entity 
+        }
+      
       end
     end
   end
@@ -64,17 +96,47 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     @task.destroy
+    
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
-      format.json { head :no_content }
+      
+      format.html { 
+        redirect_to tasks_url, notice: 'Task was successfully destroyed.' 
+      }
+      
+      format.json { 
+        head :no_content 
+      }
+    
     end
+
   end
 
   private
 
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = Task.find(params[:id])
+
+      # take the first task by id and owned by current user
+      @task = Task.where(id: params[:id])
+                  .where(user_id: current_user.id)
+                  .first
+      
+      # Set user_id when @task is initialized
+      set_user_id if @task
+
+    end
+
+    # Create new task obj
+    def new_task(params=nil)
+      @task = Task.new(params)
+      
+      # Set user_id when @task is initialized
+      set_user_id if @task
+    end
+
+    # Set task user_id
+    def set_user_id
+      @task.user_id ||= current_user.id
     end
 
     # Attr accessible list
@@ -82,7 +144,7 @@ class TasksController < ApplicationController
       %i[title description completed order due_date]
     end
 
-    # Attr accessor 
+    # Attr accessor
     def task_params
       params.require(:task).permit task_attr
     end
