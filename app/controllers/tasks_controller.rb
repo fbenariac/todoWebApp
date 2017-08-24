@@ -39,11 +39,25 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render :show, status: :created, location: @task }
+        
+        format.html { 
+          redirect_to @task, notice: 'Task was successfully created.' 
+        }
+        
+        format.json { 
+          render :show, status: :created, location: @task 
+        }
+
       else
-        format.html { render :new }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+        
+        format.html { 
+          render :new 
+        }
+        
+        format.json { 
+          render json: @task.errors, status: :unprocessable_entity 
+        }
+      
       end
     end
   end
@@ -53,12 +67,27 @@ class TasksController < ApplicationController
   def update
 
     respond_to do |format|
+
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
+
+        format.html { 
+          redirect_to @task, notice: 'Task was successfully updated.' 
+        }
+      
+        format.json { 
+          render :show, status: :ok, location: @task 
+        }
+      
       else
-        format.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+      
+        format.html { 
+          render :edit 
+        }
+        
+        format.json { 
+          render json: @task.errors, status: :unprocessable_entity 
+        }
+      
       end
     end
   end
@@ -67,25 +96,42 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     @task.destroy
+    
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
-      format.json { head :no_content }
+      
+      format.html { 
+        redirect_to tasks_url, notice: 'Task was successfully destroyed.' 
+      }
+      
+      format.json { 
+        head :no_content 
+      }
+    
     end
+
   end
 
   private
 
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      # take the first task with the id we want and with the current user id (owner).
-      @task = Task.where(id: params[:id]).where(user_id: current_user.id).first
-      set_user_id if @task # Set user_id when AFTER @task is initialized
+
+      # take the first task by id and owned by current user
+      @task = Task.where(id: params[:id])
+                  .where(user_id: current_user.id)
+                  .first
+      
+      # Set user_id when @task is initialized
+      set_user_id if @task
+
     end
 
     # Create new task obj
     def new_task(params=nil)
       @task = Task.new(params)
-      set_user_id if @task # Set user_id when AFTER @task is initialized
+      
+      # Set user_id when @task is initialized
+      set_user_id if @task
     end
 
     # Set task user_id
