@@ -9,7 +9,6 @@ This is a simple todo app build with rails 5.
   * Set up rake doc:app ;-)
 
 ## Debug/WTF:
-  * Get only task owned by the current logged user :-/
 
 ## Ideas:
   * Add a desktop app which use this website API.
