@@ -6,7 +6,6 @@ This is a simple todo app build with rails 5.
 
 ## Todo list:
   * Add some UI and UX
-  * Set up rake doc:app ;-)
 
 ## Debug/WTF:
 
