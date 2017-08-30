@@ -11,9 +11,9 @@ class TasksController < ApplicationController
   before_action :set_paper_trail_whodunnit
 
   # setter helper
-  before_action :set_task, only: %i[show edit update destroy]
-  before_action :set_task_list, only: :index
-  before_action :new_task, only: :new
+  before_action :init_task, only: %i[show edit update destroy]
+  before_action :init_tasks_list, only: :index
+  before_action :init_new_task, only: :new
 
   # GET /tasks
   # GET /tasks.json
@@ -113,7 +113,7 @@ class TasksController < ApplicationController
   private
 
     # Use callbacks to share common setup or constraints between actions.
-    def set_task
+    def init_task
 
       # take the first task by id and owned by current user
       @task = Task.where(id: params[:id])
@@ -126,12 +126,12 @@ class TasksController < ApplicationController
     end
 
     # Get task for user
-    def set_task_list
+    def init_tasks_list
       @tasks = Task.where(user_id: current_user.id).all
     end
 
     # Create new task obj
-    def new_task(params=nil)
+    def init_new_task(params=nil)
       @task = Task.new(params)
 
       # Set user_id when @task is initialized
