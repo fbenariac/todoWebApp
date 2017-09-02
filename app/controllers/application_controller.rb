@@ -37,14 +37,4 @@ class ApplicationController < ActionController::Base
       logged_home_path
     end
 
-    # # Exceptions handler method for login
-    # def login_error_handler(exception)
-    #   respond_to do |format|
-    #     format.json { head :forbidden }
-    #     format.html {
-    #       redirect_to main_app.root_url, :alert => exception.message
-    #     }
-    #   end
-    # end
-
 end
