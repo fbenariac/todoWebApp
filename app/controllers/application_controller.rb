@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   # define CanCan module for application controller
   module CanCan; end
-  
+
   # Login error rescue from CanCan
   rescue_from 'CanCan::AccessDenied', with: :login_error_handler
 
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   def home; end
 
   private
-  
+
     # Overwriting the devise sign_out redirect path method
     # After log out user is redirect to home_path
     def after_sign_out_path_for(resource_or_scope)
@@ -34,21 +34,7 @@ class ApplicationController < ActionController::Base
     # Overwriting the sign_in redirect path method
     # After log in user is redirect to home_path
     def after_sign_in_path_for(resource_or_scope)
-      # if current_user.admin?
-      #   admin_logged_home_path
-      # else 
-        logged_home_path
-      # end
-    end
-
-    # Exceptions handler method for login
-    def login_error_handler(exception)
-      respond_to do |format|
-        format.json { head :forbidden }
-        format.html { 
-          redirect_to main_app.root_url, :alert => exception.message 
-        }
-      end
+      logged_home_path
     end
 
 end

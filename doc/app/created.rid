@@ -1,4 +1,4 @@
-Sat, 26 Aug 2017 20:23:40 +0200
+Sun, 03 Sep 2017 01:56:46 +0200
 README.md	Sat, 26 Aug 2017 20:23:06 +0200
 app/assets/config/manifest.js	Sun, 30 Apr 2017 17:42:35 +0200
 app/assets/javascripts/application.js	Sat, 05 Aug 2017 14:14:28 +0200
@@ -8,8 +8,8 @@ app/assets/stylesheets/login.scss	Sat, 05 Aug 2017 14:14:28 +0200
 app/assets/stylesheets/main.scss	Sat, 05 Aug 2017 14:14:28 +0200
 app/assets/stylesheets/partials/_variables.scss	Sat, 05 Aug 2017 14:14:28 +0200
 app/assets/stylesheets/scaffolds.scss	Sat, 05 Aug 2017 14:14:28 +0200
-app/controllers/application_controller.rb	Sat, 19 Aug 2017 12:35:48 +0200
-app/controllers/tasks_controller.rb	Sat, 26 Aug 2017 20:23:06 +0200
+app/controllers/application_controller.rb	Sun, 03 Sep 2017 01:52:51 +0200
+app/controllers/tasks_controller.rb	Sun, 03 Sep 2017 01:52:51 +0200
 app/helpers/application_helper.rb	Sat, 19 Aug 2017 12:35:48 +0200
 app/helpers/tasks_helper.rb	Sat, 19 Aug 2017 12:35:48 +0200
 app/mailers/application_mailer.rb	Sat, 19 Aug 2017 12:35:48 +0200
@@ -33,6 +33,6 @@ app/views/tasks/edit.html.erb	Sat, 05 Aug 2017 14:14:28 +0200
 app/views/tasks/index.html.erb	Sat, 05 Aug 2017 14:14:28 +0200
 app/views/tasks/index.json.jbuilder	Sat, 05 Aug 2017 14:14:28 +0200
 app/views/tasks/new.html.erb	Sat, 05 Aug 2017 14:14:28 +0200
-app/views/tasks/show.html.erb	Sat, 05 Aug 2017 14:14:28 +0200
+app/views/tasks/show.html.erb	Sat, 02 Sep 2017 20:35:56 +0200
 app/views/tasks/show.json.jbuilder	Sat, 05 Aug 2017 14:14:28 +0200
 lib/tasks/doc_gen.rake	Sat, 19 Aug 2017 12:35:48 +0200
