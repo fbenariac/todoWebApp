@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   load_and_authorize_resource
 
   # Devise
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   # paper_trail versionning: get user 'who done it'
   before_action :set_paper_trail_whodunnit
@@ -34,7 +34,7 @@ class TasksController < ApplicationController
   def create
 
     # Call private helper method to set a new task
-    set_user_id if new_task(task_params)
+    set_user_id if init_new_task(task_params)
 
     respond_to do |format|
       if @task.save
@@ -145,7 +145,7 @@ class TasksController < ApplicationController
 
     # Attr accessible list
     def task_attr
-      %i[title description completed order due_date]
+      %i[title description completed order due_date user_id]
     end
 
     # Attr accessor
