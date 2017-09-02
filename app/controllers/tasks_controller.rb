@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   load_and_authorize_resource
 
   # Devise
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
 
   # paper_trail versionning: get user 'who done it'
   before_action :set_paper_trail_whodunnit
