@@ -1,29 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="dive-single">
 
-<p>
-  <strong>Title:</strong>
-  <%= @task.title %>
-</p>
+  <% if notice %><p id="notice"><%= notice %></p><% end -%>
 
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
+  <% unless @task.blank? %>
+    <p><strong>Title:</strong><%= @task.title %></p>
+    <p><strong>Description:</strong><%= @task.description %></p>
+    <p><strong>Completed:</strong><%= @task.completed %></p>
+    <p><strong>Order:</strong><%= @task.order %></p>
+    <p><strong>Due date:</strong><%= @task.due_date %></p>
+  <% end -%>
 
-<p>
-  <strong>Completed:</strong>
-  <%= @task.completed %>
-</p>
-
-<p>
-  <strong>Order:</strong>
-  <%= @task.order %>
-</p>
-
-<p>
-  <strong>Due date:</strong>
-  <%= @task.due_date %>
-</p>
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+  <p>
+    <%= link_to 'Edit', edit_task_path(@task), class: 'btn btn-primary' %> |
+    <%= link_to 'Back', tasks_path, class: 'btn btn-secondary' %>
+  </p>
+</div>
