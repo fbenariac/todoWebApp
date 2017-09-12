@@ -127,7 +127,9 @@ class TasksController < ApplicationController
 
     # Get task for user
     def init_tasks_list
-      @tasks = Task.where(user_id: current_user.id).all
+      @tasks = Task.where(user_id: current_user.id)
+                   .order(order: 'ASC')
+                   .order(due_date: 'DESC')
     end
 
     # Create new task obj
