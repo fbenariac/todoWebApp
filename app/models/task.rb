@@ -26,4 +26,11 @@ class Task < ApplicationRecord
   # A task title is mandatory
   validates :title, presence: true
 
+  enum status: { 
+    noone: '',
+    todo: 'todo',
+    wip: 'wip',
+    done: 'done'
+  }
+  
 end
