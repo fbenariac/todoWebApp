@@ -11,7 +11,9 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
+#  status      :string(255)      default(NULL)
 #
+
 class Task < ApplicationRecord
 
   # has papertrail versionning hook ;-)
@@ -26,11 +28,12 @@ class Task < ApplicationRecord
   # A task title is mandatory
   validates :title, presence: true
 
-  enum status: { 
-    noone: '',
+  # define statuses
+  enum status: {
+    no_one: '',
     todo: 'todo',
     wip: 'wip',
     done: 'done'
   }
-  
+
 end
