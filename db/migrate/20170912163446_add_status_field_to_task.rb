@@ -2,7 +2,7 @@
 class AddStatusFieldToTask < ActiveRecord::Migration[5.1]
   
   def up
-    add_column :tasks, :status, :string, default: 'noone'
+    add_column :tasks, :status, :string, default: ''
   end
   
   def down
