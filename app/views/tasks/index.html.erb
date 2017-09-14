@@ -9,7 +9,7 @@
       <tr>
         <th>Title</th>
         <th>Description</th>
-        <th>Completed</th>
+        <th>status</th>
         <th>Order</th>
         <th>Due date</th>
         <th colspan="3"></th>
@@ -21,7 +21,7 @@
         <tr>
           <td><%= task.title %></td>
           <td><%= task.description %></td>
-          <td><%= task.completed %></td>
+          <td><%= task.status %></td>
           <td><%= task.order %></td>
           <td><%= task.due_date.strftime('%F') %></td>
           <td><%= link_to 'Show', task, class: 'btn btn-secondary' %></td>
