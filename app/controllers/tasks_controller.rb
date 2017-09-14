@@ -147,7 +147,7 @@ class TasksController < ApplicationController
 
     # Attr accessible list
     def task_attr
-      %i[title description completed order due_date user_id]
+      %i[title description status order due_date user_id]
     end
 
     # Attr accessor
