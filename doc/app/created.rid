@@ -1,5 +1,5 @@
-Sun, 03 Sep 2017 01:56:46 +0200
-README.md	Sat, 26 Aug 2017 20:23:06 +0200
+Thu, 14 Sep 2017 19:58:18 +0200
+README.md	Thu, 14 Sep 2017 18:41:47 +0200
 app/assets/config/manifest.js	Sun, 30 Apr 2017 17:42:35 +0200
 app/assets/javascripts/application.js	Sat, 05 Aug 2017 14:14:28 +0200
 app/assets/javascripts/cable.js	Sun, 30 Apr 2017 17:42:35 +0200
@@ -8,16 +8,16 @@ app/assets/stylesheets/login.scss	Sat, 05 Aug 2017 14:14:28 +0200
 app/assets/stylesheets/main.scss	Sat, 05 Aug 2017 14:14:28 +0200
 app/assets/stylesheets/partials/_variables.scss	Sat, 05 Aug 2017 14:14:28 +0200
 app/assets/stylesheets/scaffolds.scss	Sat, 05 Aug 2017 14:14:28 +0200
-app/controllers/application_controller.rb	Sun, 03 Sep 2017 01:52:51 +0200
-app/controllers/tasks_controller.rb	Sun, 03 Sep 2017 01:52:51 +0200
+app/controllers/application_controller.rb	Sun, 03 Sep 2017 01:57:44 +0200
+app/controllers/tasks_controller.rb	Thu, 14 Sep 2017 19:52:42 +0200
 app/helpers/application_helper.rb	Sat, 19 Aug 2017 12:35:48 +0200
 app/helpers/tasks_helper.rb	Sat, 19 Aug 2017 12:35:48 +0200
 app/mailers/application_mailer.rb	Sat, 19 Aug 2017 12:35:48 +0200
 app/models/ability.rb	Sat, 19 Aug 2017 12:35:48 +0200
 app/models/application_record.rb	Sat, 19 Aug 2017 12:35:48 +0200
-app/models/task.rb	Sat, 26 Aug 2017 20:23:06 +0200
+app/models/task.rb	Wed, 13 Sep 2017 22:52:51 +0200
 app/models/user.rb	Sat, 19 Aug 2017 12:35:48 +0200
-app/views/application/home.html.erb	Thu, 10 Aug 2017 22:19:09 +0200
+app/views/application/home.html.erb	Mon, 11 Sep 2017 12:42:06 +0200
 app/views/layouts/application.html.erb	Sun, 30 Apr 2017 17:42:35 +0200
 app/views/layouts/application_two_cols.html.erb	Sun, 06 Aug 2017 21:51:56 +0200
 app/views/layouts/mailer.html.erb	Sun, 30 Apr 2017 17:42:35 +0200
@@ -27,12 +27,12 @@ app/views/partials/_footer.html.erb	Sun, 06 Aug 2017 21:51:56 +0200
 app/views/partials/_google_analytics.html.erb	Sat, 05 Aug 2017 14:14:28 +0200
 app/views/partials/_login_menu.html.erb	Sun, 06 Aug 2017 21:51:56 +0200
 app/views/partials/_sidebar.html.erb	Sun, 06 Aug 2017 21:51:56 +0200
-app/views/tasks/_form.html.erb	Sat, 05 Aug 2017 14:14:28 +0200
-app/views/tasks/_task.json.jbuilder	Sat, 05 Aug 2017 14:14:28 +0200
+app/views/tasks/_form.html.erb	Thu, 14 Sep 2017 19:54:15 +0200
+app/views/tasks/_task.json.jbuilder	Thu, 14 Sep 2017 18:48:46 +0200
 app/views/tasks/edit.html.erb	Sat, 05 Aug 2017 14:14:28 +0200
-app/views/tasks/index.html.erb	Sat, 05 Aug 2017 14:14:28 +0200
+app/views/tasks/index.html.erb	Thu, 14 Sep 2017 18:49:01 +0200
 app/views/tasks/index.json.jbuilder	Sat, 05 Aug 2017 14:14:28 +0200
-app/views/tasks/new.html.erb	Sat, 05 Aug 2017 14:14:28 +0200
-app/views/tasks/show.html.erb	Sat, 02 Sep 2017 20:35:56 +0200
-app/views/tasks/show.json.jbuilder	Sat, 05 Aug 2017 14:14:28 +0200
+app/views/tasks/new.html.erb	Thu, 14 Sep 2017 18:49:14 +0200
+app/views/tasks/show.html.erb	Thu, 14 Sep 2017 18:49:44 +0200
+app/views/tasks/show.json.jbuilder	Thu, 14 Sep 2017 18:49:49 +0200
 lib/tasks/doc_gen.rake	Sat, 19 Aug 2017 12:35:48 +0200
