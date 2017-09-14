@@ -5,12 +5,12 @@
 #  id          :integer          not null, primary key
 #  title       :string(255)
 #  description :text(65535)
-#  completed   :boolean
 #  order       :integer
 #  due_date    :datetime
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
+#  status      :string(255)      default(NULL)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
@@ -18,24 +18,24 @@
 one:
   title: MyString
   description: MyText
-  completed: false
   order: 1
   due_date: 2017-04-30 17:47:52
   user_id: 1
+  status: ''
 
 onebis:
   id: 1
   title: MyString
   description: MyText
-  completed: false
   order: 1
   due_date: 2017-04-30 17:47:52
   user_id: 1
+  status: todo
 
 two:
   title: MyString
   description: MyText
-  completed: false
   order: 2
   due_date: 2017-04-30 17:47:52
   user_id: 1
+  status: done

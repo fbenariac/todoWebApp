@@ -5,13 +5,14 @@
 #  id          :integer          not null, primary key
 #  title       :string(255)
 #  description :text(65535)
-#  completed   :boolean
 #  order       :integer
 #  due_date    :datetime
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
+#  status      :string(255)      default(NULL)
 #
+
 class Task < ApplicationRecord
 
   # has papertrail versionning hook ;-)
@@ -25,5 +26,13 @@ class Task < ApplicationRecord
 
   # A task title is mandatory
   validates :title, presence: true
+
+  # define statuses
+  enum status: {
+    no_one: '',
+    todo: 'todo',
+    wip: 'wip',
+    done: 'done'
+  }
 
 end

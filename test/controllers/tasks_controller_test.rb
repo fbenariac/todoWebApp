@@ -31,7 +31,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
     post tasks_url, params: {
       task: {
-        completed: @task.completed,
+        status: @task.status,
         description: @task.description,
         due_date: @task.due_date,
         order: @task.order,
@@ -45,7 +45,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     post tasks_url, params: {
       format: 'json',
       task: {
-        completed: @task.completed,
+        status: @task.status,
         description: @task.description,
         due_date: @task.due_date,
         order: @task.order,
@@ -59,7 +59,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
     post tasks_url, params: {
       task: {
-        completed: @task.completed,
+        status: @task.status,
         description: @task.description,
         due_date: @task.due_date,
         order: @task.order,
@@ -72,7 +72,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     post tasks_url, params: {
       format: 'json',
       task: {
-        completed: @task.completed,
+        status: @task.status,
         description: @task.description,
         due_date: @task.due_date,
         order: @task.order,
@@ -98,7 +98,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
     patch task_url(@task), params: {
       task: {
-        completed: @task.completed,
+        status: @task.status,
         description: @task.description,
         due_date: @task.due_date,
         order: @task.order,
@@ -111,7 +111,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     put task_url(@task), params: {
       format: 'json',
       task: {
-        completed: @task.completed,
+        status: @task.status,
         description: @task.description,
         due_date: @task.due_date,
         order: @task.order,

@@ -27,7 +27,7 @@
                 app/models/task.rb
                 
             </li>
-            <li>Last modified: 2017-08-26 20:23:06 +0200</li>
+            <li>Last modified: 2017-09-13 22:52:51 +0200</li>
         </ul>
     </div>
 
@@ -43,12 +43,12 @@
 <pre><code>id          :integer          not null, primary key
 title       :string(255)
 description :text(65535)
-completed   :boolean
 order       :integer
 due_date    :datetime
 created_at  :datetime         not null
 updated_at  :datetime         not null
-user_id     :integer</code></pre>
+user_id     :integer
+status      :string(255)      default(NULL)</code></pre>
 
     </div>
   
