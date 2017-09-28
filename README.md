@@ -5,14 +5,14 @@
 This is a simple todo app build with rails 5.
 
 ## Todo list:
-
+  * Use [responders](https://github.com/plataformatec/responders) instead of custom respond_to for each formats
   * Add some UI and UX (Set bootstraps' classes everywhere !)
   * Set nice forms (with bootstrap) for Create and Update
   * Add sections: ['todo', 'wip', 'done'] to tasks' home
   * Add ajax action to update case status from home (todo/wip/done)
   * Feature: be able to use label for each task.
   * Set tasks avancements status. (task.status)
-  
+
 
 ## Debug/WTF:
 
