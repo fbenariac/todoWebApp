@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.4.1'
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -48,5 +50,3 @@ group :development, :test do
   gem 'rails-erd',                   require: false
   gem 'simplecov',                   require: false
 end
-
-ruby '2.4.1'
