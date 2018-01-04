@@ -36,12 +36,17 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass', '>= 2.0.3.1'
 gem 'jquery-rails', '>= 4.1.1'
 
+# Heroku
+gem 'rails_12factor', group: :production
+
 # Devs
 group :development, :test do
-  gem 'sdoc', '~> 0.4.0', require: false
-  gem 'rspec', '3.4.0',   require: false
+  gem 'sdoc', '~> 0.4.0',            require: false
+  gem 'rspec', '3.4.0',              require: false
   gem 'listen', '>= 3.0.5', '< 3.2', require: false
-  gem 'annotate',         require: false
-  gem 'rails-erd',        require: false
-  gem 'simplecov',        require: false
+  gem 'annotate',                    require: false
+  gem 'rails-erd',                   require: false
+  gem 'simplecov',                   require: false
 end
+
+ruby '2.4.1'
