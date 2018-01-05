@@ -9,6 +9,9 @@
   <body>
 
     <div class="navbar navbar-default" role="navigation">
+      <div class="app-name">
+        <h1><%= link_to(app_name, url_for(root_path)) %></h1>
+      </div>
     </div>
 
     <section>
@@ -20,7 +23,6 @@
           </div>
           <div class="col-md-4">
             <%= render 'partials/sidebar' %>
-
           </div>
         </div>
       </div>
