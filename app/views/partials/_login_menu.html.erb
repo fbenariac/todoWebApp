@@ -7,7 +7,7 @@
     </p>
   </div>
 <% else %>
-  <% unless ['registrations', 'sessions', 'passwords', 'confirmations'].include?(controller_name) %>
+  <% unless %w[registrations sessions passwords confirmations].include?(controller_name) %>
     <div class="well">
       <p class= "text-center">
         <%= link_to 'Sign up', new_user_registration_path, class: 'navbar-link'  %> |
