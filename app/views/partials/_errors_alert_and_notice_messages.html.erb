@@ -1,13 +1,13 @@
-<div class="alert notif">
-
+<% if alert %>
   <!-- Alerts messages -->
-  <% if alert %>
+  <div class="alert notif">
     <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
+  </div>
+<% end %>
 
+<% if notice %>
   <!-- Notices messages -->
-  <% if notice %>
+  <div class="alert notif">
     <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-
-</div>
+  </div>
+<% end %>

@@ -1,45 +1,51 @@
-<%= form_with(model: task, local: true) do |form| %>
-  <% if task.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h3>
+<div class="panel panel-default">
+  <div class="panel-body">
 
-      <ul>
-      <% task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <%= form_with(model: task, local: true, role: 'form') do |form| %>
+
+    <% if task.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(task.errors.count, 'error') %> prohibited this task from being saved:</h3>
+        <ul>
+          <% task.errors.full_messages.each do |message| %><li><%= message %></li><% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.text_field :title,
+                          placeholder: :title,
+                          class: 'form-control',
+                          id: :task_title %>
+    </div>
+
+    <div class="form-group">
+      <%= form.text_area :description,
+                         placeholder: :description,
+                         class: 'form-control',
+                         id: :task_description %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :status %>
+      <%= form.select(
+        :status,
+        Task.statuses.keys.map {|status| [status.titleize, status]},
+        { include_blank: true, id: :task_status, class: 'form-control' }
+      ) %>
+    </div>
+
+    <div class="form-group">
+      <%= form.number_field :order, placeholder: :order, class: 'form-control', id: :task_order %>
+    </div>
+
+    <div class="form-group">
+      <%= form.datetime_select :due_date, placeholder: :due_date, class: 'form-control', id: :task_due_date %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: 'btn btn-success btn-block' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :task_title %>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :task_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.select(
-          :status,
-          Task.statuses.keys.map {|status| [status.titleize, status]},
-          { include_blank: true, id: :task_status } ) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :order %>
-    <%= form.number_field :order, id: :task_order %>
-  </div>
-
-  <div class="field">
-    <%= form.label :due_date %>
-    <%= form.datetime_select :due_date, id: :task_due_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
