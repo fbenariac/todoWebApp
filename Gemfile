@@ -37,6 +37,7 @@ gem 'coffee-rails', '>= 4.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass', '>= 2.0.3.1'
 gem 'jquery-rails', '>= 4.1.1'
+gem 'webpacker', '~> 3.2'
 
 # Heroku
 gem 'rails_12factor', group: :production
