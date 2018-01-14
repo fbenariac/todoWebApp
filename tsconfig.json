@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outFile": "app/assets/javascripts/generated/welcome.js",
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "sourceMap": true,
+    "target": "es5"
+  },
+  "files": [
+    "app/assets/javascripts/welcome.ts"
+  ]
+}
