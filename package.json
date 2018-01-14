@@ -1,5 +1,7 @@
 {
   "name": "todoWebApp",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "typescript": "^2.6.2"
+  }
 }
