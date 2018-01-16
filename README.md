@@ -5,7 +5,6 @@
 This is a simple todo app build with rails 5.
 
 ## Todo list:
-  * Set nice forms (with bootstrap) for Create/Update and for login/signup
   * Add js lib to add UI (drag/drop to change task priority and later task's state)
   * Add sections: ['todo', 'wip', 'done'] to tasks' home
   * Add ajax action to update case status from home (todo/wip/done)

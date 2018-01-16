@@ -1,4 +1,4 @@
-# Application Helper. Not used now...
+# Application Helper.
 module ApplicationHelper
   def app_name
     'TodoWebApp'
