@@ -203,14 +203,14 @@
   <span class="ruby-identifier">set_user_id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">init_new_task</span>(<span class="ruby-identifier">task_params</span>)
 
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@task</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">task</span>.<span class="ruby-identifier">save</span>
 
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> {
-        <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@task</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Task was successfully created.&#39;</span>
+        <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">task</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Task was successfully created.&#39;</span>
       }
 
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> {
-        <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@task</span>
+        <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-identifier">task</span>
       }
 
     <span class="ruby-keyword">else</span>
@@ -220,7 +220,7 @@
       }
 
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> {
-        <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@task</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span>
+        <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">task</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span>
       }
 
     <span class="ruby-keyword">end</span>
@@ -261,7 +261,7 @@
               <div id="method-i-destroy_source" class="dyn-source">
                 <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 96</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">destroy</span>
-  <span class="ruby-ivar">@task</span>.<span class="ruby-identifier">destroy</span>
+  <span class="ruby-identifier">task</span>.<span class="ruby-identifier">destroy</span>
 
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
 
@@ -454,14 +454,14 @@
 
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
 
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@task</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">task_params</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">task</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">task_params</span>)
 
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> {
-        <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@task</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Task was successfully updated.&#39;</span>
+        <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">task</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Task was successfully updated.&#39;</span>
       }
 
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> {
-        <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:ok</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@task</span>
+        <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:ok</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-identifier">task</span>
       }
 
     <span class="ruby-keyword">else</span>
@@ -471,7 +471,7 @@
       }
 
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> {
-        <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@task</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span>
+        <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">task</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span>
       }
 
     <span class="ruby-keyword">end</span>
