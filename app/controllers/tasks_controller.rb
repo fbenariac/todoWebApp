@@ -123,8 +123,8 @@ class TasksController < ApplicationController
 
       # take the first task by id and owned by current user
       task = Task.where(id: params[:id])
-                  .where(user_id: current_user.id)
-                  .first
+                 .where(user_id: current_user.id)
+                 .first
 
       # Set user_id when @task is initialized
       set_user_id if task
@@ -147,8 +147,8 @@ class TasksController < ApplicationController
     # Get task for user
     def init_tasks_list
       tasks = Task.where(user_id: current_user.id)
-                   .order(order: 'ASC')
-                   .order(due_date: 'DESC')
+                  .order(order: 'ASC')
+                  .order(due_date: 'DESC')
     end
 
     # Set task user_id
