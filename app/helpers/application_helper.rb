@@ -1,6 +1,9 @@
 # Application Helper.
 module ApplicationHelper
+
+  # Return the application name
   def app_name
-    'TodoWebApp'
+    @app_name ||= 'TodoWebApp'
   end
+
 end

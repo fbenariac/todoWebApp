@@ -44,7 +44,7 @@ class TasksController < ApplicationController
         }
 
         format.json {
-          render :show, status: :created, location: @task
+          render :show, status: :created, location: task
         }
 
       else
@@ -132,7 +132,7 @@ class TasksController < ApplicationController
     end
 
     # Create new task obj
-    def init_new_task(params=nil)
+    def init_new_task(params = nil)
       task = Task.new(params)
 
       # Set user_id when @task is initialized
