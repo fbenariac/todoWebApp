@@ -9,28 +9,17 @@ class CreateVersions < ActiveRecord::Migration[5.1]
   TEXT_BYTES = 1_073_741_823
 
   def change
-    create_table :versions, { options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci" } do |t|
-      t.string   :item_type, {:null=>false, :limit=>191}
-      t.integer  :item_id,   null: false
-      t.string   :event,     null: false
-      t.string   :whodunnit
-      t.text     :object, limit: TEXT_BYTES
+    opts = 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci'
 
-      # Known issue in MySQL: fractional second precision
-      # -------------------------------------------------
-      #
-      # MySQL timestamp columns do not support fractional seconds unless
-      # defined with "fractional seconds precision". MySQL users should manually
-      # add fractional seconds precision to this migration, specifically, to
-      # the `created_at` column.
-      # (https://dev.mysql.com/doc/refman/5.6/en/fractional-seconds.html)
-      #
-      # MySQL users should also upgrade to rails 4.2, which is the first
-      # version of ActiveRecord with support for fractional seconds in MySQL.
-      # (https://github.com/rails/rails/pull/14359)
-      #
-      t.datetime :created_at
+    create_table :versions, { options: opts } do |table|
+      table.string   :item_type, { null: false, limit: 191 }
+      table.integer  :item_id,   null: false
+      table.string   :event,     null: false
+      table.string   :whodunnit
+      table.text     :object, limit: TEXT_BYTES
+      table.datetime :created_at
     end
+
     add_index :versions, %i(item_type item_id)
   end
 end
