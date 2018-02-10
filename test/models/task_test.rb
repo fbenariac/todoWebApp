@@ -16,17 +16,16 @@
 require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
   test 'get statuses' do
-    expected_Status = { 
-      no_one: '', 
+    expected_status = {
+      no_one: '',
       todo:   'todo',
       wip:    'wip',
       done:   'done'
-    } 
-    
-    assert expected_Status, Task.statuses
+    }
+
+    assert expected_status, Task.statuses
   end
+
 end
