@@ -1,0 +1,10 @@
+---
+IrresponsibleModule:
+  enabled: false
+
+TooManyStatements:
+  max_statements: 5
+
+"app/controllers":
+  TooManyStatements:
+    max_statements: 10

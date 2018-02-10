@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: :home
 
   # Global layout for app
-  layout "application_two_cols"
+  layout 'application_two_cols'
 
   # define CanCan module for application controller
   module CanCan; end
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   # Any routes that aren't defined above here go to the 404
   def routing_error
-    render :file => 'public/404.html', :status => :not_found, :layout => false
+    render file: 'public/404.html', status: :not_found, layout: false
   end
 
   # main application home
