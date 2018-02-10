@@ -37,10 +37,10 @@ class TasksController < ApplicationController
     set_user_id if init_new_task(task_params)
 
     respond_to do |format|
-      if @task.save
+      if task.save
 
         format.html {
-          redirect_to @task, notice: 'Task was successfully created.'
+          redirect_to task, notice: 'Task was successfully created.'
         }
 
         format.json {
@@ -54,7 +54,7 @@ class TasksController < ApplicationController
         }
 
         format.json {
-          render json: @task.errors, status: :unprocessable_entity
+          render json: task.errors, status: :unprocessable_entity
         }
 
       end
@@ -67,14 +67,14 @@ class TasksController < ApplicationController
 
     respond_to do |format|
 
-      if @task.update(task_params)
+      if task.update(task_params)
 
         format.html {
-          redirect_to @task, notice: 'Task was successfully updated.'
+          redirect_to task, notice: 'Task was successfully updated.'
         }
 
         format.json {
-          render :show, status: :ok, location: @task
+          render :show, status: :ok, location: task
         }
 
       else
@@ -84,7 +84,7 @@ class TasksController < ApplicationController
         }
 
         format.json {
-          render json: @task.errors, status: :unprocessable_entity
+          render json: task.errors, status: :unprocessable_entity
         }
 
       end
@@ -94,7 +94,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
-    @task.destroy
+    task.destroy
 
     respond_to do |format|
 
@@ -112,37 +112,48 @@ class TasksController < ApplicationController
 
   private
 
+    # Set and return task instance variable
+    def task
+      @task ||= init_task
+      @task ||= init_new_task
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def init_task
 
       # take the first task by id and owned by current user
-      @task = Task.where(id: params[:id])
+      task = Task.where(id: params[:id])
                   .where(user_id: current_user.id)
                   .first
 
       # Set user_id when @task is initialized
-      set_user_id if @task
+      set_user_id if task
 
-    end
-
-    # Get task for user
-    def init_tasks_list
-      @tasks = Task.where(user_id: current_user.id)
-                   .order(order: 'ASC')
-                   .order(due_date: 'DESC')
     end
 
     # Create new task obj
     def init_new_task(params=nil)
-      @task = Task.new(params)
+      task = Task.new(params)
 
       # Set user_id when @task is initialized
-      set_user_id if @task
+      set_user_id if task
+    end
+
+    # Set and return tasks instance variable
+    def tasks
+      @tasks ||= init_tasks_list
+    end
+
+    # Get task for user
+    def init_tasks_list
+      tasks = Task.where(user_id: current_user.id)
+                   .order(order: 'ASC')
+                   .order(due_date: 'DESC')
     end
 
     # Set task user_id
     def set_user_id
-      @task.user_id ||= current_user.id
+      task.user_id ||= current_user.id
     end
 
     # Attr accessible list
