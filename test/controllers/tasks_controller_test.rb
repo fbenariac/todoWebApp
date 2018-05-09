@@ -5,29 +5,29 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   def setup
-    @task  = tasks(:one)
+    @task = tasks(:one)
     @task_one_bis = tasks(:onebis)
     sign_in users(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get tasks_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_task_url
     assert_response :success
   end
 
-  test "should get new with user" do
+  test 'should get new with user' do
     sign_in users(:two)
 
     get new_task_url
     assert_response :success
   end
 
-  test "should create task" do
+  test 'should create task' do
 
     post tasks_url, params: {
       task: {
@@ -84,17 +84,17 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   end
 
-  test "should show task" do
+  test 'should show task' do
     get task_url(@task_one_bis)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_task_url(@task_one_bis)
     assert_response :success
   end
 
-  test "should update task" do
+  test 'should update task' do
 
     patch task_url(@task), params: {
       task: {
@@ -141,12 +141,12 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   end
 
-  test "should destroy task" do
+  test 'should destroy task' do
     delete "/tasks/#{@task.id}"
     assert_redirected_to tasks_url
   end
 
-  test "should destroy task json" do
+  test 'should destroy task json' do
     delete "/tasks/#{@task.id}.json"
     assert 204
   end
