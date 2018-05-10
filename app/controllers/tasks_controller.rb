@@ -2,7 +2,7 @@
 class TasksController < ApplicationController
 
   # Cancancan
-  load_and_authorize_resource
+#  load_and_authorize_resource
 
   # Devise
   before_action :authenticate_user!
@@ -11,30 +11,38 @@ class TasksController < ApplicationController
   before_action :set_paper_trail_whodunnit
 
   # setter helper
-  before_action :init_task, only: %i[show edit update destroy]
-  before_action :init_tasks_list, only: :index
-  before_action :init_new_task, only: :new
+  # before_action :init_task, only: %i[show edit update destroy]
+  # before_action :init_tasks_list, only: :index
 
   # GET /tasks
   # GET /tasks.json
-  def index; end
+  def index
+    @tasks = Task.where(user_id: current_user.id).
+                  order(order: 'ASC', due_date: 'DESC').all
+  end
 
   # GET /tasks/1
   # GET /tasks/1.json
-  def show; end
+  def show
+    @task = get_task_by_id params[:id]
+  end
 
   # GET /tasks/new
-  def new; end
+  def new
+    @task = Task.new
+  end
 
   # GET /tasks/1/edit
-  def edit; end
+  def edit
+    @task = get_task_by_id params[:id]
+  end
 
   # POST /tasks
   # POST /tasks.json
   def create
 
-    # Call private helper method to set a new task
-    set_user_id if init_new_task(task_params)
+    task = Task.new(task_params)
+    set_user_id task
 
     respond_to do |format|
       if task.save
@@ -65,6 +73,8 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1.json
   def update
 
+    task = get_task_by_id params[:id]
+
     respond_to do |format|
 
       if task.update(task_params)
@@ -94,6 +104,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
+    task = get_task_by_id params[:id]
     task.destroy
 
     respond_to do |format|
@@ -112,47 +123,12 @@ class TasksController < ApplicationController
 
   private
 
-    # Set and return task instance variable
-    def task
-      @task ||= init_task
-      @task ||= init_new_task
-    end
-
-    # Use callbacks to share common setup or constraints between actions.
-    def init_task
-
-      # take the first task by id and owned by current user
-      task = Task.where(id: params[:id])
-                 .where(user_id: current_user.id)
-                 .first
-
-      # Set user_id when @task is initialized
-      set_user_id if task
-
-    end
-
-    # Create new task obj
-    def init_new_task(params = nil)
-      task = Task.new(params)
-
-      # Set user_id when @task is initialized
-      set_user_id if task
-    end
-
-    # Set and return tasks instance variable
-    def tasks
-      @tasks ||= init_tasks_list
-    end
-
-    # Get task for user
-    def init_tasks_list
-      tasks = Task.where(user_id: current_user.id)
-                  .order(order: 'ASC')
-                  .order(due_date: 'DESC')
+    def get_task_by_id(id)
+      Task.where(id: id).first
     end
 
     # Set task user_id
-    def set_user_id
+    def set_user_id(task)
       task.user_id ||= current_user.id
     end
 
