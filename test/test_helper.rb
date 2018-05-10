@@ -6,12 +6,11 @@ require 'rails/test_help'
 
 # Active Support testCase config
 class ActiveSupport::TestCase
-
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  # Setup all fixtures in test/fixtures/*.yml
+  #      for all tests in alphabetical order.
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-
 end
 
 # Include devises helpers to Action controller TestCase

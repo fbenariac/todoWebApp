@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class ApplicationControllerTest < ActionDispatch::IntegrationTest
 
@@ -29,8 +29,8 @@ class ApplicationControllerTest < ActionDispatch::IntegrationTest
     sign_in users(:one)
     post user_session_url, params: {
       user: {
-        email:'test@test.com',
-        password:'XXXX'
+        email: 'test@test.com',
+        password: 'XXXX'
       }
     }
 

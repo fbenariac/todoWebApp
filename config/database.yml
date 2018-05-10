@@ -3,20 +3,19 @@ default: &default
   timeout: 5000
   encoding: utf8
   pool: 5
-  
+
 development: &dev
   <<: *default
   host: localhost
   database: todowebapp_development
-  socket: /tmp/mysql.sock
   username: devuser # app_user
   password: devpswd # app_user_pswd
-  
+
 test:
   <<: *dev
   host: localhost
   database: todowebapp_test
-  
+
 production:
   <<: *default
   host: localhost
