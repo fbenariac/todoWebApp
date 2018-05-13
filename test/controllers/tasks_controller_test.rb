@@ -4,6 +4,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   include Devise::Test::IntegrationHelpers
 
+  # Test set up
   def setup
     @task = tasks(:one)
     @task_one_bis = tasks(:onebis)

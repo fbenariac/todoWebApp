@@ -4,6 +4,7 @@ class ApplicationMailer < ActionMailer::Base
   default from: 'from@example.com'
   layout 'mailer'
 
+  # Welcome email
   def welcome_email(user)
     email_to = user[:email]
     subject = 'Welcome'
